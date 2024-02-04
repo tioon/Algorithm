@@ -36,5 +36,5 @@ public class BeakJoon_1316 {
         }
 
         System.out.println(count); // 그룹 단어의 개수 출력
-    }
+    }//수정
 }
