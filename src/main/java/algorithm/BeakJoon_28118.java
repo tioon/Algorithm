@@ -27,6 +27,7 @@ public class BeakJoon_28118 {
             g[u][v] = g[v][u] = 1;
         }
 
+
         for(int i=1; i<=n; i++)
             if(c[i] == 0) { // 만약 방문 안했으면 dfs 시작
                 dfs(i);
