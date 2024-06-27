@@ -2,7 +2,6 @@ package algorithm;
 
 import java.io.*;
 
-//백준 1065
 public class BaekJoon_1065 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
