@@ -15,7 +15,7 @@ class Node{
     }
 }
 
-public class Main {
+public class BeakJoon_9489 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
