@@ -3,7 +3,7 @@ package algorithm;
 import java.io.*;
 import java.util.PriorityQueue;
 
-public class BeakJoon_4485 {
+public class BeakJoon_4486 {
     static class Node implements Comparable<Node>{
         int x;
         int y;
