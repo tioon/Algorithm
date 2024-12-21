@@ -18,6 +18,7 @@ public class Problem3 {
         visit = new char[n][n];
         result = new char[n][n];
 
+        // 폭탄위치 입력
         for(int i=0; i<n; i++){
             String[] s1 = br.readLine().split("");
             for(int j=0; j<n; j++){
@@ -25,6 +26,7 @@ public class Problem3 {
             }
         }
 
+        // 방문상황 입력
         for(int i=0; i<n; i++){
             String[] s2 = br.readLine().split("");
             for(int j=0; j<n; j++){
@@ -33,21 +35,24 @@ public class Problem3 {
         }
 
         boolean isBoomClicked = false;
+        // 완전 탐색
         for(int i=0; i<n; i++){
             for(int j=0; j<n; j++){
+                // 만약 방문한 곳이라면 check함수 호출 값 업데이트
                 if(visit[i][j] == 'x'){
                     result[i][j] = (char)(check(i,j)+'0');
                     if (boom[i][j] == '*') {
-                        isBoomClicked = true; // 지뢰 클릭 여부 체크
+                        isBoomClicked = true; // 만약 폭탄 있을 시, 지뢰 클릭 여부 체크
                     }
                 }
+                // 만약 방문하지 않은 곳이라면 .으로 업데이트
                 else{
                     result[i][j] = '.';
                 }
             }
         }
 
-        // 지뢰 클릭 시 모든 지뢰 표시
+        // 만약 이미 지뢰를 밟았다면, 모든 지뢰 표시
         if (isBoomClicked) {
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
@@ -70,6 +75,7 @@ public class Problem3 {
     public static int check(int y,int x){
         int count =0;
 
+        // 상하좌우 및 대각선에 폭탄이 몇개 존재하는지 체크
         for(int i=-1; i<2; i++){
             for(int j=-1; j<2; j++){
                 int nextX = x+j;
@@ -77,7 +83,7 @@ public class Problem3 {
 
                 if(nextX>=0 && nextX<n && nextY>=0 && nextY<n){
                     if(boom[nextY][nextX] == '*')
-                        count++;
+                        count++; // 폭탄 존재시 count++;
                 }
             }
         }

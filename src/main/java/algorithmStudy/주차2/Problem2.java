@@ -7,7 +7,7 @@ import java.io.*;
 
 //백준 1212
 public class Problem2 {
-    static int[][] next = {{0,1}, {1,0}, {0,-1}, {-1, 0}};
+    static int[][] next = {{0,1}, {1,0}, {0,-1}, {-1, 0}}; // 아래, 오른쪽, 위, 왼쪽
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -17,22 +17,23 @@ public class Problem2 {
         int result = Integer.parseInt(br.readLine());
 
         int[][] array = new int[N][N];
-        int number = N*N;
+        int number = N*N; // 제일 큰 숫자부터 진행
 
         int current=0;
         int x=0;
         int y=0;
+        // number 숫자만큼 반복
         while(number>=1){
             array[y][x] = number--;
 
-            //System.out.println(y+" "+x+" "+number);
-
             int nextX = x + next[current][0];
             int nextY = y + next[current][1];
+            // 배열 범위안에 존재 && 이전에 방문하지 않은 배열이라면 업데이트
             if(nextX>=0 && nextX<N && nextY>=0 && nextY<N && array[nextY][nextX] == 0){
                 x = nextX;
                 y = nextY;
             }
+            // 아닐시, 방향 전환
             else {
                 current = (current+1)%4;
                 x = x + next[current][0];
